@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Dominando CSS 3</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: rgb(160, 205, 225);
+        }
+
+        .menu-btn {
+            font-size: 30px;
+            cursor: pointer;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001; 
+            color: white;
+            background-color: #9f842d;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .sidebar {
+            width: 250px;
+            background-color: #d4af37;
+            color: black;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: -250px; 
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px;
+            transition: left 0.3s ease;
+            z-index: 1000;
+        }
+
+        .sidebar a {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: black; 
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #a88730; 
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .main-content {
+            margin-left: 0;
+            padding: 20px;
+            width: 100%;
+            transition: margin-left 0.3s ease;
+        }
+
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .item {
+            width: 30%;
+            max-width: 300px;
+            margin: 30px;
+            padding: 20px;
+            background-color: rgb(234, 234, 234);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .item:hover {
+            transform: translateY(-10px);
+        }
+
+        .item img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .item h2 {
+            margin: 15px 0;
+            font-size: 1.5em;
+            color: #333;
+        }
+
+        .item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .item {
+                width: 45%;
+            }
+
+            .custom-div {
+                width: calc(45% * 2 + 40px); 
+            }
+        }
+
+        @media (max-width: 480px) {
+            .item {
+                width: 90%;
+            }
+
+            .custom-div {
+                width: calc(90%);
+            }
+        }
+
+        .sidebar.open {
+            left: 0;
+        }
+
+        .main-content.menu-open {
+            margin-left: 250px;
+        }
+
+        .custom-div {
+            background-color: rgb(234, 234, 234); 
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: calc(30% * 3 + 60px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .custom-div h2 {
+            margin-bottom: 20px;
+            font-size: 2em;
+            color: #333;
+        }
+
+        .custom-div p {
+            font-size: 1.1em;
+            color: #666;
+            line-height: 1.6;
+            text-align: justify; 
+        }
+
+        footer {
+            background-color: rgb(173, 0, 0);
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            height: 400px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="menu-btn" id="menu-btn">
+        &#9776;
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <h2>Menu</h2>
+        <a href="#section1">Tripulação</a>
+        <a href="#section2">Sobre a História</a>
+    </div>
+
+    <div class="main-content" id="main-content">
+        <div class="box">
+            <div class="item" id="section1">
+                <img src="img/luffy.png" alt="Imagem 1">
+                <h2>Monkey D. Luffy</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+
+            <div class="item">
+                <img src="img/zoro.png" alt="Imagem 2">
+                <h2>Roronoa Zoro</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+
+            <div class="item">
+                <img src="img/nami.png" alt="Imagem 3">
+                <h2>Nami</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+
+            <div class="item">
+                <img src="img/usopp.png" alt="Imagem 4">
+                <h2>Usopp</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+
+            <div class="item">
+                <img src="img/sanji.png" alt="Imagem 5">
+                <h2>Sanji</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+
+            <div class="item">
+                <img src="img/chopper.png" alt="Imagem 6">
+                <h2>Tony Tony Chopper</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+
+            <div class="item">
+                <img src="img/robin.png" alt="Imagem 7">
+                <h2>Nico Robin</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+                        
+            <div class="item">
+                <img src="img/franky.png" alt="Imagem 8">
+                <h2>Franky</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+                        
+            <div class="item">
+                <img src="img/brook.png" alt="Imagem 9">
+                <h2>Brook</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+                        
+            <div class="item">
+                <img src="img/jinbe.png" alt="Imagem 10">
+                <h2>Jinbe</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+                        
+            <div class="item">
+                <img src="img/vivi.png" alt="Imagem 11">
+                <h2>Nefertari Vivi</h2>
+                <p>Aqui é o meu texto!</p>
+            </div>
+        </div>
+
+        <div class="custom-div" id="section2">
+            <h2>One Piece</h2>
+            <p>Monkey D. Luffy, um jovem pirata com a habilidade de esticar seu corpo como borracha após comer uma Fruta do Diablo. 
+                Luffy está em busca do lendário tesouro conhecido como "One Piece", que lhe permitirá se tornar o Rei dos Piratas.<br><br>
+
+                Luffy forma uma equipe conhecida como os "Chapéus de Palha", composta por diversos personagens únicos, cada um com seus próprios sonhos e habilidades. 
+                Entre seus companheiros estão Roronoa Zoro, um espadachim que usa três espadas; Nami, uma navegadora e cartógrafa; Usopp, um atirador e mentiroso habilidoso; 
+                e Sanji, um chef de cozinha e lutador especializado em artes marciais.<br><br>
+                
+                A jornada de Luffy e seus amigos é marcada por batalhas épicas, descobertas de ilhas misteriosas, e confrontos com poderosos inimigos, incluindo outros piratas, 
+                a Marinha e organizações criminosas. Eles enfrentam desafios e formam alianças enquanto buscam alcançar seus sonhos individuais e superar os obstáculos impostos pelo vasto e perigoso mundo do Grande Azul.</p>
+        </div>
+    </div>
+
+    <footer>
+        © Direitos reservados a Eiichiro Oda
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+
+        menuBtn.addEventListener('click', function() {
+            sidebar.classList.toggle('open');
+            mainContent.classList.toggle('menu-open');
+        });
+    </script>
+
+</body>
+</html>
